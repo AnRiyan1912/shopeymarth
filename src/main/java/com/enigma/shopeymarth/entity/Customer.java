@@ -5,15 +5,15 @@ import lombok.*;
 
 @Entity
 @Table(name = "m_customer")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder(toBuilder = true)
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Integer id;
+    private String id;
     @Column(name = "name", length = 50, nullable = false)
     private String name;
     @Column(name = "address", length = 100, nullable = false)
@@ -22,6 +22,4 @@ public class Customer {
     private String mobilePhone;
     @Column(name = "email", length = 50, unique = true, nullable = false)
     private String email;
-
-
 }
