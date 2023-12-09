@@ -60,26 +60,20 @@ public class CustomerServiceImpl implements CustomerService {
         List<Customer> customers = customerRepository.findAll();
         List<CustomerRequest> customerRequests = new ArrayList<>();
         List<CustomerResponse> customerResponses = new ArrayList<>();
-        for(Customer customer: customers) {
-            CustomerRequest tempCustomerRequest = CustomerRequest.builder()
-                    .id(customer.getId())
-                    .name(customer.getName())
-                    .address(customer.getAddress())
-                    .mobilePhone(customer.getMobilePhone())
-                    .email(customer.getEmail())
-                    .build();
-            customerRequests.add(tempCustomerRequest);
-        }
-        for (CustomerRequest customerRequest: customerRequests) {
-            CustomerResponse tempCustomerResponse = CustomerResponse.builder()
-                    .id(customerRequest.getId())
-                    .name(customerRequest.getName())
-                    .address(customerRequest.getAddress())
-                    .phone(customerRequest.getMobilePhone())
-                    .email(customerRequest.getEmail())
-                    .build();
-            customerResponses.add(tempCustomerResponse);
-        }
+        customers.stream().forEach(customer -> customerRequests.add(CustomerRequest.builder()
+                .id(customer.getId())
+                .name(customer.getName())
+                .address(customer.getAddress())
+                .mobilePhone(customer.getMobilePhone())
+                .email(customer.getEmail())
+                .build()));
+        customerRequests.stream().forEach(customerRequest -> customerResponses.add(CustomerResponse.builder()
+                .id(customerRequest.getId())
+                .name(customerRequest.getName())
+                .address(customerRequest.getAddress())
+                .phone(customerRequest.getMobilePhone())
+                .email(customerRequest.getEmail())
+                .build()));
         return customerResponses;
     }
 
