@@ -1,7 +1,7 @@
 package com.enigma.shopeymarth.service.impl;
 
-import com.enigma.shopeymarth.dto.StoreRequest;
-import com.enigma.shopeymarth.dto.StoreResponse;
+import com.enigma.shopeymarth.dto.store.StoreRequest;
+import com.enigma.shopeymarth.dto.store.StoreResponse;
 import com.enigma.shopeymarth.entity.Store;
 import com.enigma.shopeymarth.repository.StoreRepository;
 import com.enigma.shopeymarth.service.StoreService;
@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,8 +24,19 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Store getById(String id) {
-        return storeRepository.findById(id).orElse(null);
+    public StoreResponse getById(String id) {
+        Store store = storeRepository.findById(id).orElse(null);
+        if (store != null) {
+            return StoreResponse.builder()
+                    .id(store.getId())
+                    .noSiup(store.getNoSiup())
+                    .storeName(store.getName())
+                    .address(store.getAddress())
+                    .phone(store.getMobilePhone())
+                    .isActive(store.getIsActive())
+                    .build();
+        }
+        return null;
     }
 
     @Override
@@ -34,20 +46,12 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public Store update(Store store) {
-        Store currentStoreId = getById(store.getId());
-        if (currentStoreId != null) {
-            return storeRepository.save(store);
-        }
         return null;
     }
 
     @Override
     public void delete(String id) {
-        Store currentStoreId = getById(id);
-        currentStoreId.setIsActive(false);
-        if (currentStoreId.getId() != null) {
-            storeRepository.save(currentStoreId);
-        }
+
     }
 
     @Override

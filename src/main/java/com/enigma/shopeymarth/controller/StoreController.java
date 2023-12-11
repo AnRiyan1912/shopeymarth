@@ -1,8 +1,8 @@
 package com.enigma.shopeymarth.controller;
 
 import com.enigma.shopeymarth.constant.AppPath;
-import com.enigma.shopeymarth.dto.StoreRequest;
-import com.enigma.shopeymarth.dto.StoreResponse;
+import com.enigma.shopeymarth.dto.store.StoreRequest;
+import com.enigma.shopeymarth.dto.store.StoreResponse;
 import com.enigma.shopeymarth.entity.Store;
 import com.enigma.shopeymarth.service.StoreService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class StoreController {
     }
 
     @GetMapping(value = "/{id}")
-    public Store getByIdStore(@PathVariable String id) {
+    public StoreResponse getByIdStore(@PathVariable String id) {
         return storeService.getById(id);
     }
 

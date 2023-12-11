@@ -1,4 +1,4 @@
-package com.enigma.shopeymarth.dto;
+package com.enigma.shopeymarth.dto.customer;
 
 import jakarta.persistence.Column;
 import lombok.*;

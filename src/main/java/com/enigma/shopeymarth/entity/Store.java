@@ -1,8 +1,11 @@
 package com.enigma.shopeymarth.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity
 @Table(name = "m_store")
@@ -25,4 +28,7 @@ public class Store {
     private String mobilePhone;
     @Column(name = "is_active")
     private Boolean isActive;
+    @OneToMany(mappedBy = "store")
+    @JsonBackReference
+    private List<ProductPrice> productPrice;
 }

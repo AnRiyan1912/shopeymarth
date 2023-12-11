@@ -1,4 +1,4 @@
-package com.enigma.shopeymarth.dto;
+package com.enigma.shopeymarth.dto.customer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class StoreRequest {
+public class CustomerResponse {
     private String id;
-    private String noSiup;
     private String name;
     private String address;
-    private String mobilePhone;
-    private Boolean isActive;
+    private String phone;
+    private String email;
 }

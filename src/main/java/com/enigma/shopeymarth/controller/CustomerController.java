@@ -1,8 +1,8 @@
 package com.enigma.shopeymarth.controller;
 
 import com.enigma.shopeymarth.constant.AppPath;
-import com.enigma.shopeymarth.dto.CustomerRequest;
-import com.enigma.shopeymarth.dto.CustomerResponse;
+import com.enigma.shopeymarth.dto.customer.CustomerRequest;
+import com.enigma.shopeymarth.dto.customer.CustomerResponse;
 import com.enigma.shopeymarth.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +28,8 @@ public class CustomerController {
         return customerService.getAll();
     }
     @PutMapping
-    public CustomerResponse updateCustomer(@RequestBody CustomerResponse customerResponse) {
-        return customerService.update(customerResponse);
+    public CustomerResponse updateCustomer(@RequestBody CustomerRequest customerRequest) {
+        return customerService.update(customerRequest);
     }
     @DeleteMapping("/{id}")
     public void deleteCustomer(@PathVariable String id) {
