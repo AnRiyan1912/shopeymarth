@@ -4,6 +4,7 @@ import com.enigma.shopeymarth.dto.product.ProductProductPriceStoreResponse;
 import com.enigma.shopeymarth.dto.product.ProductAndProductPriceRequest;
 import com.enigma.shopeymarth.dto.product.ProductAndProductPriceResponse;
 import com.enigma.shopeymarth.entity.Product;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface ProductService {
     void deleteById(String id);
     List<ProductProductPriceStoreResponse> getAllProductWithProductPriceAndStore();
     ProductAndProductPriceResponse createProductAndProductPrice(ProductAndProductPriceRequest productAndProductPriceRequest);
+    Page<ProductProductPriceStoreResponse> getAllByNameOrPrice(String name, Long maxPrice, Integer page, Integer size);
 }

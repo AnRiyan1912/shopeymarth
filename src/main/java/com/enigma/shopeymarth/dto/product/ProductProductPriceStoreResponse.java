@@ -17,6 +17,7 @@ public class ProductProductPriceStoreResponse {
     private String id;
     private String productName;
     private String description;
-    private List<ProductPrice> productPrice;
+    private Long price;
+    private Integer stock;
     private StoreResponse store;
 }

@@ -4,7 +4,9 @@ import com.enigma.shopeymarth.entity.ProductPrice;
 import com.enigma.shopeymarth.repository.ProductPriceRepository;
 import com.enigma.shopeymarth.service.ProductPriceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -22,4 +24,23 @@ public class productPriceServiceImpl implements ProductPriceService {
         return productPriceRepository.findAll();
     }
 
+    @Override
+    public ProductPrice update(ProductPrice productPrice) {
+        ProductPrice currentProductPrice = getById(productPrice.getId());
+        if (currentProductPrice != null) {
+            return productPriceRepository.save(productPrice);
+        }
+        return null;
+
+    }
+
+    @Override
+    public ProductPrice findProductPriceIsActive(String productId, Boolean active) {
+        return productPriceRepository.findByProductIdAndIsActive(productId, active).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "product not found"));
+    }
+
+    @Override
+    public ProductPrice getById(String id) {
+        return productPriceRepository.findById(id).orElse(null);
+    }
 }

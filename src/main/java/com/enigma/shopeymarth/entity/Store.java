@@ -29,6 +29,5 @@ public class Store {
     @Column(name = "is_active")
     private Boolean isActive;
     @OneToMany(mappedBy = "store")
-    @JsonBackReference
     private List<ProductPrice> productPrice;
 }

@@ -8,4 +8,8 @@ import java.util.List;
 public interface ProductPriceService {
     ProductPrice create(ProductPrice productPrice);
     List<ProductPrice> getAll();
+    ProductPrice update(ProductPrice productPrice);
+
+    ProductPrice findProductPriceIsActive(String productId, Boolean active);
+    ProductPrice getById(String id);
 }
