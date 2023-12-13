@@ -1,5 +1,9 @@
-package com.enigma.shopeymarth.dto.producprice;
+package com.enigma.shopeymarth.dto.producprice.response;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class ProductPriceRequest {
+public class ProductPriceResponse {
     private String id;
     private Integer stock;
     private Boolean isActive;

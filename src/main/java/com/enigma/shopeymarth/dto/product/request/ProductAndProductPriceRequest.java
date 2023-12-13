@@ -1,5 +1,6 @@
-package com.enigma.shopeymarth.dto.product;
+package com.enigma.shopeymarth.dto.product.request;
 
+import com.enigma.shopeymarth.dto.product.response.ProductAndProductPriceResponse;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

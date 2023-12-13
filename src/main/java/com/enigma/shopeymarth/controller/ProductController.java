@@ -1,8 +1,9 @@
 package com.enigma.shopeymarth.controller;
 
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceRequest;
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceResponse;
-import com.enigma.shopeymarth.dto.product.ProductProductPriceStoreResponse;
+import com.enigma.shopeymarth.constant.AppPath;
+import com.enigma.shopeymarth.dto.product.request.ProductAndProductPriceRequest;
+import com.enigma.shopeymarth.dto.product.response.ProductAndProductPriceResponse;
+import com.enigma.shopeymarth.dto.product.response.ProductProductPriceStoreResponse;
 import com.enigma.shopeymarth.dto.response.CommonResponse;
 import com.enigma.shopeymarth.dto.response.PagingResponse;
 import com.enigma.shopeymarth.entity.Product;
@@ -17,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/product")
+@RequestMapping(AppPath.VALUE_PRODUCT)
 public class ProductController {
     private final ProductService productService;
     @PostMapping
@@ -63,7 +64,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(CommonResponse.builder()
                         .statusCode(HttpStatus.CREATED.value())
-                        .message("Succesfully get produtc by id")
+                        .message("Succesfully get product")
                         .data(productProductPriceStoreResponses.getContent())
                         .pagingResponse(pagingResponse)
                         .build());

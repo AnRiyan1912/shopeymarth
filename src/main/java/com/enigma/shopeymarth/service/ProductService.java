@@ -1,8 +1,8 @@
 package com.enigma.shopeymarth.service;
 
-import com.enigma.shopeymarth.dto.product.ProductProductPriceStoreResponse;
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceRequest;
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceResponse;
+import com.enigma.shopeymarth.dto.product.response.ProductProductPriceStoreResponse;
+import com.enigma.shopeymarth.dto.product.request.ProductAndProductPriceRequest;
+import com.enigma.shopeymarth.dto.product.response.ProductAndProductPriceResponse;
 import com.enigma.shopeymarth.entity.Product;
 import org.springframework.data.domain.Page;
 

@@ -1,8 +1,8 @@
 package com.enigma.shopeymarth.service.impl;
 
-import com.enigma.shopeymarth.dto.product.ProductProductPriceStoreResponse;
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceRequest;
-import com.enigma.shopeymarth.dto.product.ProductAndProductPriceResponse;
+import com.enigma.shopeymarth.dto.product.response.ProductProductPriceStoreResponse;
+import com.enigma.shopeymarth.dto.product.request.ProductAndProductPriceRequest;
+import com.enigma.shopeymarth.dto.product.response.ProductAndProductPriceResponse;
 import com.enigma.shopeymarth.dto.store.StoreResponse;
 import com.enigma.shopeymarth.entity.Product;
 import com.enigma.shopeymarth.entity.ProductPrice;

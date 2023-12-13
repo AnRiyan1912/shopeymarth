@@ -1,4 +1,4 @@
-package com.enigma.shopeymarth.dto.product;
+package com.enigma.shopeymarth.dto.product.response;
 
 import com.enigma.shopeymarth.dto.store.StoreResponse;
 import com.enigma.shopeymarth.entity.ProductPrice;

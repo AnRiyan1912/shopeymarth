@@ -1,6 +1,6 @@
 package com.enigma.shopeymarth.dto.orderDetail;
 
-import com.enigma.shopeymarth.dto.product.ProductProductPriceStoreResponse;
+import com.enigma.shopeymarth.dto.product.response.ProductProductPriceStoreResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
