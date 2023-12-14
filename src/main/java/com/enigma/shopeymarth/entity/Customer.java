@@ -22,4 +22,7 @@ public class Customer {
     private String mobilePhone;
     @Column(name = "email", length = 50, unique = true, nullable = false)
     private String email;
+    @OneToOne
+    @JoinColumn(name = "user_credential_id")
+    private UserCredential userCredential;
 }

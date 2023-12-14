@@ -29,6 +29,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public CustomerResponse createNewCustomer(Customer request) {
+        Customer customer = customerRepository.saveAndFlush(request);
+        return CustomerResponse.builder()
+                .id(customer.getId())
+                .name(customer.getName())
+                .address(customer.getAddress())
+                .email(customer.getEmail())
+                .phone(customer.getMobilePhone())
+                .build();
+    }
+
+    @Override
     public CustomerResponse getById(String id) {
         Customer customer = customerRepository.findById(id).orElse(null);
         return ResponseCustomer(customer);
