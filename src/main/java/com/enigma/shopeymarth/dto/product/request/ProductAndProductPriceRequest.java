@@ -1,6 +1,7 @@
 package com.enigma.shopeymarth.dto.product.request;
 
 import com.enigma.shopeymarth.dto.product.response.ProductAndProductPriceResponse;
+import com.enigma.shopeymarth.dto.store.StoreRequest;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -25,5 +26,5 @@ public class ProductAndProductPriceRequest {
     @Min(value = 0, message = "stck must be greate than equal 0")
     private Integer stock;
     @NotBlank(message = "storeId is required")
-    private ProductAndProductPriceResponse storeId;
+    private StoreRequest storeId;
 }

@@ -30,4 +30,7 @@ public class Store {
     private Boolean isActive;
     @OneToMany(mappedBy = "store")
     private List<ProductPrice> productPrice;
+
+    public Store(String id, String noSiup, String name, String address, String mobilePhone, boolean isActive) {
+    }
 }

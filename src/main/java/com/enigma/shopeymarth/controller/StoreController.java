@@ -30,8 +30,8 @@ public class StoreController {
         return storeService.getALl();
     }
     @PutMapping
-    public Store updateStore(@RequestBody Store store) {
-        return storeService.update(store);
+    public StoreResponse updateStore(@RequestBody StoreRequest storeRequest) {
+        return storeService.update(storeRequest);
     }
 
     @DeleteMapping(value = "/{id}")

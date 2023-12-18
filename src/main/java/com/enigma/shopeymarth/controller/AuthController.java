@@ -23,7 +23,7 @@ public class AuthController {
     public ResponseEntity<?> registerCustomer(@RequestBody AuthRequest authRequest) {
         RegisterResponse registerCustomer = authService.registerCustomer(authRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(
-                CommondResponseAuth.builder()
+                CommondResponseAuth.<RegisterResponse>builder()
                         .statusCode(HttpStatus.CREATED.value())
                         .message("Success create account customer")
                         .data(registerCustomer)
@@ -34,7 +34,7 @@ public class AuthController {
     public ResponseEntity<?> registerAdmin(@RequestBody AuthRequest authRequest) {
         RegisterResponse registerResponse = authService.registerAdmin(authRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(
-                CommondResponseAuth.builder()
+                CommondResponseAuth.<RegisterResponse>builder()
                         .statusCode(HttpStatus.CREATED.value())
                         .message("Success create account admin")
                         .data(registerResponse)

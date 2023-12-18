@@ -27,7 +27,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try{
             //Validasi token jwt
-            String headerAuth = request.getHeader("Autorization");
+            String headerAuth = request.getHeader("Authorization");
             String token = null;
             if (headerAuth != null && headerAuth.startsWith("Bearer")) {
                 token = headerAuth.substring(7);
@@ -49,6 +49,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         }catch (Exception e) {
             e.getMessage();
         }
+
+        filterChain.doFilter(request, response);
 
     }
 }

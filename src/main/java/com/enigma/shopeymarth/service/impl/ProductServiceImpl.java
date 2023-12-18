@@ -90,7 +90,6 @@ public class ProductServiceImpl implements ProductService {
                         .build())
                 .product(product)
                 .build();
-
         productPriceService.create(productPrice);
 
         return ProductAndProductPriceResponse.builder()

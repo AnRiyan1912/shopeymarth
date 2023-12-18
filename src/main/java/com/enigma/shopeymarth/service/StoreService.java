@@ -10,7 +10,8 @@ public interface StoreService {
     Store create(Store store);
     StoreResponse getById(String id);
     List<Store> getALl();
-    Store update(Store store);
+    StoreResponse update(StoreRequest storeRequest);
     void delete(String id);
     StoreResponse create(StoreRequest storeRequest);
+    List<StoreResponse> getallStore();
 }
