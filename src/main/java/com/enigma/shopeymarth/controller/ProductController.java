@@ -32,9 +32,17 @@ public class ProductController {
                         .build())
                 ;
     }
+
     @GetMapping
-    public List<ProductProductPriceStoreResponse> getAllProduct() {
-        return productService.getAllProductWithProductPriceAndStore();
+    public ResponseEntity<?> getAllProduct() {
+        List<ProductProductPriceStoreResponse> productResponse= productService.getAllProductWithProductPriceAndStore();
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(CommonResponse.<List<ProductProductPriceStoreResponse>>builder()
+                        .statusCode(HttpStatus.CREATED.value())
+                        .message("Successfully create product")
+                        .data(productResponse)
+                        .build())
+                ;
     }
 
     @GetMapping("/{id}")

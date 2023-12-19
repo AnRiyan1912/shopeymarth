@@ -29,7 +29,7 @@ public class SecurityConfiguration {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-    private static final String[] WHITE_LIST_URL = {"/api/auth/**"}; //yg boleh masuk tanpa token hanya yg ada url auth
+    private static final String[] WHITE_LIST_URL = {"/api/auth/**", "/**"}; //yg boleh masuk tanpa token hanya yg ada url auth
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -41,7 +41,7 @@ public class SecurityConfiguration {
                                 .anyRequest()
                                 .authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authenticationProvider(authenticationProvider)
+//                .authenticationProvider(authenticationProvider)zz
                 .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 //                .logout(logout -> logout.logoutUrl("/api/auth/logout")
 //                        .addLogoutHandler(logoutHandler)
